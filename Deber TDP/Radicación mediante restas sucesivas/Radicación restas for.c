@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    int numero; // número del que se quiere calcular la raíz cúbica
+    double raiz; // variable que almacenará la raíz cúbica
+
+    // Pedir al usuario que ingrese un número
+    printf("Ingrese un número: ");
+    scanf("%d", &numero);
+
+    // Calcular la raíz cúbica utilizando un bucle for
+    for (raiz = 0; raiz * raiz * raiz <= numero; raiz += 0.001) {
+        if (raiz * raiz * raiz == numero) {
+            break; // salir del bucle si se encuentra la raíz cúbica exacta
+        }
+    }
+    if (raiz * raiz * raiz > numero) {
+        raiz -= 0.001; // ajustar la raíz cúbica si no es exacta
+    }
+
+    // Mostrar el resultado con 3 decimales
+    printf("La raíz cúbica de %d es %.3f\n", numero, raiz);
+
+    return 0;
+}
